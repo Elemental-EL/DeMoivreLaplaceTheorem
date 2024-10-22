@@ -132,9 +132,9 @@ def de_moivre_laplace_integral(n, p, k1, k2):
     z_k2 = (k2 - mean) / std_dev
 
     # Use scipy.integrate.quad to compute the integral of the normal density function
-    integral_value1, _ = quad(normal_density, z_k1, -math.inf)
-    integral_value2, _ = quad(normal_density, z_k2, -math.inf)
-    return integral_value1 - integral_value2
+    integral_value1, _ = quad(normal_density, -math.inf, z_k1)
+    integral_value2, _ = quad(normal_density, -math.inf, z_k2)
+    return integral_value2 - integral_value1
 
 
 # Example usage
